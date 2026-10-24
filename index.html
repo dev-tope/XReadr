@@ -116,7 +116,7 @@ mark{background:var(--or);color:#000;border-radius:3px;padding:0 1px}
   <button class="si" data-v="set">&#9881;&#65039; Settings</button>
 </aside>
 <input type="file" id="file" accept=".epub,application/epub+zip" hidden>
-<main id="feed"><div class="msg"><h2>Your book, as a timeline</h2>Open the menu &#128060; and tap <b>Add EPUB</b>.</div></main>
+<main id="feed"><div class="msg"><h2>Your book, as a timeline</h2>Open the menu &#9776; and tap <b>Add EPUB</b>.</div></main>
 <div id="end" hidden></div>
 <div id="hlb"><button class="btn h" id="hadd">&#128396;&#65039; Highlight</button><button class="btn o" id="hdel" hidden>Remove</button></div>
 <div id="toast"></div>
@@ -277,7 +277,8 @@ function head(){
   else if(view==='set'){lab='Settings';sub='Theme & text size'}
   else if(view==='exp'){lab='Export';sub='Notes & highlights as Markdown'}
   else if(view==='post'){lab='Post';sub=book.chapters[cur].title}
-  else{var ch=book.chapters[cur];lab=ch.title;sub=ch.lb+' · '+(cur+1)+' of '+n}
+  else if(book){var ch=book.chapters[cur];lab=ch.title;sub=ch.lb+' · '+(cur+1)+' of '+n}
+  else{lab='No book open';sub='Open the menu and add an EPUB'}
   $('lab').textContent=lab;$('sub').textContent=sub;
   Array.prototype.forEach.call(document.querySelectorAll('.si'),function(b){
     var v=b.dataset.v;b.disabled=b.hasAttribute('data-nb')&&!book;
@@ -493,7 +494,7 @@ function syncBm(){
 
 /* ---------- events ---------- */
 function sb(o){$('sb').classList.toggle('o',o);$('scrim').classList.toggle('o',o)}
-$('menu').onclick=function(){head();sb(true)};
+$('menu').onclick=function(){sb(true);head()};
 $('scrim').onclick=function(){sb(false)};
 $('sb').onclick=function(e){
   var b=e.target.closest('.si');if(!b||b.disabled)return;sb(false);var v=b.dataset.v;
