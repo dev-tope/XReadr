@@ -171,7 +171,7 @@ var PPL=['🧑','👩','👨','🧒','👦','👧','👴','👵','🧓','🧔','
 var TN=['','🏻','🏼','🏽','🏾','🏿'];
 function rnd(s){var h=2166136261;for(var k=0;k<s.length;k++){h^=s.charCodeAt(k);h=Math.imul(h,16777619)}h^=h>>>13;h=Math.imul(h,1274126177);return (h^h>>>16)>>>0}
 function emo(c,i){var r=rnd(book.id+':e'+c+':'+i);return PPL[r%PPL.length]+TN[(r>>>8)%TN.length]}
-function avStyle(c,i){var h=rnd(book.id+':p'+c+':'+i)%360;return 'background:hsl('+h+',55%,26%);border-color:hsl('+h+',70%,55%)'}
+function avStyle(c,i){var h=rnd(book.id+':p'+c+':'+i)%360;return 'background:hsl('+h+',55%,26%)'}
 
 /* ---------- EPUB parsing ---------- */
 var dp=new DOMParser();
