@@ -167,7 +167,7 @@ function labelize(b){var n=0;b.chapters.forEach(function(ch){
   for(var k=0;k<FM.length;k++)if(FM[k][0].test(ch.title)||(gen&&FM[k][0].test(nm))){f=FM[k];break}
   if(f){ch.lb=f[1];ch.kind=f[2]}else{n++;ch.lb='C'+n;ch.kind='Chapter '+n}
 })}
-var PPL=['🧑','👩','👨','🧒','👦','👧','👴','👵','🧓','🧔','👱','👲','👳','🧕','👮','💂','👷','🤴','👸','🦸','🦹','🧙','🧚','🧜','🧝','🎅','🤶','🙋','💁','🙆','🙇','🤷','🧘','🐵', '🦍', '🦧','🐶', '🦊', '🐷', '🦁', '🐀', '🐻‍❄️', '🐻', '🐨', '🐥', '🐔', '🦉', '🐢', '🐸'];
+var PPL=['🧑','👩','👨','🧒','👦','👧','👴','👵','🧓','🧔','👱','👲','👳','🧕','👮','💂','👷','🤴','👸','🦸','🦹','🧙','🧚','🧜','🧝','🎅','🤶','🙋','💁','🙆','🙇','🤷','🧘'];
 var TN=['','🏻','🏼','🏽','🏾','🏿'];
 function rnd(s){var h=2166136261;for(var k=0;k<s.length;k++){h^=s.charCodeAt(k);h=Math.imul(h,16777619)}h^=h>>>13;h=Math.imul(h,1274126177);return (h^h>>>16)>>>0}
 function emo(c,i){var r=rnd(book.id+':e'+c+':'+i);return PPL[r%PPL.length]+TN[(r>>>8)%TN.length]}
